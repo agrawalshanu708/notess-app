@@ -7,11 +7,10 @@ export function CardShowcase({ card, setCard }) {
   return (
     <>
       <div className="card-container">
-        {card.map(({ name, number, address }, index) => (
+        {card.map(({ tittle, description }, index) => (
           <div key={index} className="box">
-            <p>Name: {name}</p>
-            <p>Number: {number}</p>
-            <p>Address: {address}</p>
+            <p>{tittle}</p>
+            <p>{description}</p>
             <button onClick={() => removeHandler(index)}>Remove</button>
             {/* <button onClick={() => editHandler(index)}>EDIT</button> */}
           </div>

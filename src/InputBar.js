@@ -1,37 +1,32 @@
 import { useState } from "react";
 
 export function InputBar({ card, setCard }) {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [tittle, setTittle] = useState("");
+
+  const [description, setDescription] = useState("");
 
   console.log(card);
   return (
     <>
       <form className="input-container">
         <input
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your Name"
-          value={name}
+          onChange={(e) => setTittle(e.target.value)}
+          placeholder="Write tittle"
+          value={tittle}
         />
-        <input
-          onChange={(e) => setNumber(e.target.value)}
-          placeholder="Your Conatct Number"
-          value={number}
-        />
+
         <textarea
-          placeholder="write your address"
-          onChange={(e) => setAddress(e.target.value)}
-          value={address}
+          placeholder="Description"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
         />
         <button
           className="Submit-btn"
           onClick={(e) => {
-            setCard((card) => [...card, { name, number, address }]);
+            setCard((card) => [...card, { tittle, description }]);
             e.preventDefault();
-            setName("");
-            setNumber("");
-            setAddress("");
+            setTittle("");
+            setDescription("");
           }}
         >
           ADD
