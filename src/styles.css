@@ -41,3 +41,6 @@ textarea {
   flex-direction: column;
   text-align: left;
 }
+.button-box {
+  margin-bottom: 2rem;
+}
