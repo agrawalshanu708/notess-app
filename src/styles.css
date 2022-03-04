@@ -26,6 +26,9 @@ textarea {
 }
 .pin-container,
 .unpin-container {
+}
+.pinned-container,
+.unpinned-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;

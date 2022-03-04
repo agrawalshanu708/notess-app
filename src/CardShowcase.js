@@ -8,28 +8,44 @@ export function CardShowcase({ card, setCard }) {
   console.log(pinnedNotes);
   return (
     <>
-      <div className="pin-container">
-        {<h1>Pinned Notes</h1> &&
-          pinnedNotes.length >= 1 &&
-          pinnedNotes.map(({ tittle, description, color }, index) => (
-            <div key={index} style={{ backgroundColor: color }} className="box">
-              <p>{tittle}</p>
-              <p>{description}</p>
-              <button onClick={() => removeHandler(index)}>Remove</button>
-              {/* <button onClick={() => editHandler(index)}>EDIT</button> */}
-            </div>
-          ))}
-      </div>
-      <div className="unpin-container">
-        {unpinnedNotes.map(({ tittle, description, color }, index) => (
-          <div key={index} style={{ backgroundColor: color }} className="box">
-            <p>{tittle}</p>
-            <p>{description}</p>
-            <button onClick={() => removeHandler(index)}>Remove</button>
-            {/* <button onClick={() => editHandler(index)}>EDIT</button> */}
+      {pinnedNotes.length >= 1 && (
+        <div className="pin-container">
+          <h1>Pinned Notes</h1>
+          <div className="pinned-container">
+            {pinnedNotes.map(({ tittle, description, color }, index) => (
+              <div
+                key={index}
+                style={{ backgroundColor: color }}
+                className="box"
+              >
+                <p>{tittle}</p>
+                <p>{description}</p>
+                <button onClick={() => removeHandler(index)}>Remove</button>
+                {/* <button onClick={() => editHandler(index)}>EDIT</button> */}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      )}
+      {unpinnedNotes.length > 0 && (
+        <div className="unpin-container">
+          <h1>Unpinned</h1>
+          <div className="unpinned-container">
+            {unpinnedNotes.map(({ tittle, description, color }, index) => (
+              <div
+                key={index}
+                style={{ backgroundColor: color }}
+                className="box"
+              >
+                <p>{tittle}</p>
+                <p>{description}</p>
+                <button onClick={() => removeHandler(index)}>Remove</button>
+                {/* <button onClick={() => editHandler(index)}>EDIT</button> */}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }
